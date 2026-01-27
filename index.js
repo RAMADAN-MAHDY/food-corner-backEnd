@@ -20,8 +20,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // CORS middleware
-app.use(cors());
+const corsOptions = {
 
+    origin: ["https://food-corner-roan.vercel.app" , "http://localhost:3000"],
+    optionsSuccessStatus: 200,
+    credentials: true
+};
+app.use(cors(corsOptions));
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('MongoDB Connected'))
