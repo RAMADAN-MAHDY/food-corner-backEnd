@@ -1,0 +1,11 @@
+### Test Get All Categories
+GET http://localhost:5000/api/categories
+
+### Test Get All Meals
+GET http://localhost:5000/api/meals
+
+### Test Get Meals by Category (Valid Category ID)
+GET http://localhost:5000/api/categories/65b6c7d8e9f0a1b2c3d4e5f6/meals
+
+### Test Get Meals by Category (Invalid Category ID)
+GET http://localhost:5000/api/categories/invalid-id/meals

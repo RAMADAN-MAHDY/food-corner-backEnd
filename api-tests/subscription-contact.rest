@@ -1,0 +1,58 @@
+### Test Subscribe to Newsletter - Success
+POST http://localhost:5000/api/subscribe
+Content-Type: application/json
+
+{
+  "email": "subscribe@example.com"
+}
+
+### Test Subscribe to Newsletter - Already Subscribed (Should Fail)
+POST http://localhost:5000/api/subscribe
+Content-Type: application/json
+
+{
+  "email": "subscribe@example.com"
+}
+
+### Test Subscribe to Newsletter - Invalid Email (Should Fail Validation)
+POST http://localhost:5000/api/subscribe
+Content-Type: application/json
+
+{
+  "email": "invalid-email"
+}
+
+### Test Send Contact Message - Success (Requires Authentication)
+POST http://localhost:5000/api/contact
+Content-Type: application/json
+Authorization: Bearer <YOUR_TOKEN_HERE>
+
+{
+  "name": "Test User",
+  "email": "contact@example.com",
+  "phone": "0123456789",
+  "message": "This is a test message"
+}
+
+### Test Send Contact Message - Without Authentication (Should Fail)
+POST http://localhost:5000/api/contact
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "contact@example.com",
+  "phone": "0123456789",
+  "message": "This is a test message"
+}
+
+### Test Send Contact Message - Invalid Data (Should Fail Validation)
+POST http://localhost:5000/api/contact
+Content-Type: application/json
+Authorization: Bearer <YOUR_TOKEN_HERE>
+
+{
+  "name": "",
+  "email": "invalid-email",
+  "phone": "",
+  "message": ""
+}

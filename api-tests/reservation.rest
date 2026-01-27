@@ -1,0 +1,40 @@
+### Test Create Reservation - Success (Requires Authentication)
+POST http://localhost:5000/api/reservation
+Content-Type: application/json
+Authorization: Bearer <YOUR_TOKEN_HERE>
+
+{
+  "name": "Test Reservation",
+  "phone": "0123456789",
+  "tables": 1,
+  "people": 2,
+  "date": "2024-12-31",
+  "time": "18:00"
+}
+
+### Test Create Reservation - Without Authentication (Should Fail)
+POST http://localhost:5000/api/reservation
+Content-Type: application/json
+
+{
+  "name": "Test Reservation",
+  "phone": "0123456789",
+  "tables": 1,
+  "people": 2,
+  "date": "2024-12-31",
+  "time": "18:00"
+}
+
+### Test Create Reservation - Invalid Data (Should Fail Validation)
+POST http://localhost:5000/api/reservation
+Content-Type: application/json
+Authorization: Bearer <YOUR_TOKEN_HERE>
+
+{
+  "name": "",
+  "phone": "",
+  "tables": 0,
+  "people": 0,
+  "date": "invalid-date",
+  "time": "invalid-time"
+}
